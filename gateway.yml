@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: order
+          predicates:
+            - Path=/order/**
+          filters:
+            - RewritePath=/order/(?<s>.*), /${s}
+          uri: lb://order
+        - id: inventory
+          predicates:
+            - Path=/invetory/**
+          filters:
+            - RewritePath=/invetory/(?<s>.*), /${s}
+          uri: lb://inventory
+        - id: catalog
+          predicates:
+            - Path=/catalog/**
+          filters:
+            - RewritePath=/catalog/(?<s>.*), /${s}
+          uri: lb://catalog
