@@ -22,3 +22,9 @@ spring:
           filters:
             - RewritePath=/catalog/(?<s>.*), /${s}
           uri: lb://catalog
+        - id: delivery
+          predicates:
+            - Path=/delivery/**
+          filters:
+            - RewritePath=/delivery/(?<s>.*), /${s}
+          uri: lb://delivery
