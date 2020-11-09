@@ -12,9 +12,9 @@ spring:
           uri: lb://order
         - id: inventory
           predicates:
-            - Path=/invetory/**
+            - Path=/inventory/**
           filters:
-            - RewritePath=/invetory/(?<s>.*), /${s}
+            - RewritePath=/inventory/(?<s>.*), /${s}
           uri: lb://inventory
         - id: catalog
           predicates:
